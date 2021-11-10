@@ -1,28 +1,32 @@
 import React from "react";
 import "./VideoList.css";
 import VideoItem from "./VideoItem";
-function VideoList({ videos, selectedHandler, firstVidOfTheList }) {
-// const firstVidOfTheListX = () => {
-  
-// };
-
-  
+export default function VideoList({
+  videos,
+  selectedHandler,
+  setToggleFaveIcon,
+  favorites,
+  setIndex,
+}) {
+  // const setToggleFaveIconX = () => {
+  //   setToggleFaveIcon(false);
+  // };
   return (
-    <div className="sidebar">
+    <div className="videoList">
       {videos.map((vidObj, index) => {
-       
         return (
           <VideoItem
             // channelTitle={ele.snippet.title}
             // channelImage={ele.snippet.thumbnails.url}
+            key={vidObj.id.vedoId}
             vidObj={vidObj}
             selectedHandler={selectedHandler}
-          
+            setToggleFaveIcon={setToggleFaveIcon}
+            favorites={favorites}
+            setIndex={index}
           />
         );
       })}
     </div>
   );
 }
-
-export default VideoList;

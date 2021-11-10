@@ -25,14 +25,14 @@ const Header = (props) => {
         <MenuIcon />
         <img className="header__logo" src={logo} alt="" />
       </div>
-      <div className="header__input">
-        <form onSubmit={onsubmitHandler}>
+      {/* <div className="header__input"> */}
+        <form onSubmit={onsubmitHandler} className="header__form">
           <input type="text" placeholder="Search" onChange={searchHandler} />
           <button>
             <SearchIcon className="header__inputButton" />
           </button>
         </form>
-      </div>
+      {/* </div> */}
       <div className="header__icons">
         <VideoCallIcon className="header__icon" />
         <AppsIcon className="header__icon" />

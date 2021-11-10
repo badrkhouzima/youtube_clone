@@ -1,6 +1,6 @@
-.sidebar__page{
+.front__page {
     display: flex;
-    justify-content: space-between;
-    
+     /* justify-content: space-between; */
+    padding: 5px;
     border: 1px solid black;
 }
