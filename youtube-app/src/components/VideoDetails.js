@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./VideoDetails.css";
 import VidHolder from "./VidHolder";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";

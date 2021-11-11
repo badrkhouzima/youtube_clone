@@ -20,29 +20,29 @@ const Header = (props) => {
   };
 
   return (
-    <div className="header">
-      <div className="header__left">
-        <MenuIcon />
-        <img className="header__logo" src={logo} alt="" />
-      </div>
-      {/* <div className="header__input"> */}
+      <div className="header">
+        <div className="header__left">
+          <MenuIcon />
+          <img className="header__logo" src={logo} alt="react tube" />
+        </div>
+        {/* <div className="header__input"> */}
         <form onSubmit={onsubmitHandler} className="header__form">
           <input type="text" placeholder="Search" onChange={searchHandler} />
           <button>
             <SearchIcon className="header__inputButton" />
           </button>
         </form>
-      {/* </div> */}
-      <div className="header__icons">
-        <VideoCallIcon className="header__icon" />
-        <AppsIcon className="header__icon" />
-        <NotificationsIcon className="header__icon" />
-        <Avatar
-          src="https://avatars.githubusercontent.com/padreno"
-          alt="badr khouzima's face"
-        />
+        {/* </div> */}
+        <div className="header__icons">
+          <VideoCallIcon className="header__icon" />
+          <AppsIcon className="header__icon" />
+          <NotificationsIcon className="header__icon" />
+          <Avatar
+            src="https://avatars.githubusercontent.com/padreno"
+            alt="badr khouzima's face"
+          />
+        </div>
       </div>
-    </div>
   );
 };
 export default Header;

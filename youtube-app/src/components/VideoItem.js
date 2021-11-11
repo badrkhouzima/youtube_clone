@@ -27,14 +27,12 @@ function VideoItem({
         <h4>{vidObj.snippet.title}</h4>
         <h6>{vidObj.snippet.channelTitle}</h6>
       </div>
+      {/* <Avatar
+          className="videoItem__avatar"
+          alt={vidObj.snippet.channelTitle}
+          src={vidObj.snippet.thumbnails.medium.url}
+        /> */}
     </div>
   );
 }
 export default VideoItem;
-{
-  /* <Avatar
-          className="videoItem__avatar"
-          alt={vidObj.snippet.channelTitle}
-          src={vidObj.snippet.thumbnails.medium.url}
-        /> */
-}
