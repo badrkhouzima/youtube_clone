@@ -1,0 +1,36 @@
+.LastSearches {
+    flex: 0.5;
+    padding: 30px 10px;
+    background-color: #161527;
+    color: aliceblue;
+}
+
+.LastSearches__Cards {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+align-items: center;
+}
+
+.LastSearches__Info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.LastSearches__Info>img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.LastSearches__Play>input {
+    background-color: red;
+    border: none;
+    width: 100px;
+    height: 20px;
+    border-radius: 3px;
+    color: white;
+}

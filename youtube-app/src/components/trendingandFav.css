@@ -1,0 +1,4 @@
+.trending__Favorites{
+    display: flex;
+    flex-direction: column;
+}

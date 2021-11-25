@@ -2,7 +2,8 @@
     flex: 0.60;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
+   
 }
 iframe {
     border: 1px solid rgb(45, 231, 28);
@@ -17,6 +18,8 @@ iframe {
 .videodetails__vidinfo {
     display: flex;
     flex-direction: column;
+    padding: 10px 10px;
+  
 }
 .timeAndfavorite {
     display: flex;
@@ -26,4 +29,9 @@ iframe {
 .timeAndfavorite button{
     border: none;
     background-color: #fff;
+}
+
+.timeAndfavorite {
+    display: flex;
+    justify-content: flex-end;
 }

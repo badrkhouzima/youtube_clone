@@ -1,23 +1,23 @@
 import React from "react";
-import FavoriteVideo from "./FavoriteVideo";
-import "./Favorites.css"
-function Favorites({
+import VideoCard from "./VideoCard";
+import "./TrendingVideos.css";
+function TrendingVideos({
+  videos,
   selectedHandler,
   setToggleFaveIcon,
-  favVideos,
   favorites,
-  setShowTrending,
+  //setHomepage,
   setShowVideoDetail,
+  setShowVideoList,
   setShowFavorites,
 }) {
   return (
-    <div className="favoriteVideos">
-      {/* <div className="FavoritesList"></div> */}
-      <h2>Favorite Videos</h2>
-      <div className="favoriteVideos__videos">
-        {favVideos.map((vidObj, index) => {
+    <div className="trendingVideos">
+      <h2>Trending videos</h2>
+      <div className="trendingVideos__videos">
+        {videos.map((vidObj, index) => {
           return (
-            <FavoriteVideo
+            <VideoCard
               // channelTitle={ele.snippet.title}
               // channelImage={ele.snippet.thumbnails.url}
               key={index}
@@ -25,8 +25,9 @@ function Favorites({
               selectedHandler={selectedHandler}
               setToggleFaveIcon={setToggleFaveIcon}
               favorites={favorites}
-              setShowTrending={setShowTrending}
+              //setHomepage={setHomepage}
               setShowVideoDetail={setShowVideoDetail}
+              setShowVideoList={setShowVideoList}
               setShowFavorites={setShowFavorites}
             />
           );
@@ -35,4 +36,5 @@ function Favorites({
     </div>
   );
 }
-export default Favorites;
+
+export default TrendingVideos;

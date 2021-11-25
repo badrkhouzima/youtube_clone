@@ -1,0 +1,12 @@
+.videoCard {
+  margin-bottom: 40px;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+
+}
+.videoCard__thumbnail {
+  height: 140px;
+  width: 250px;
+  cursor: pointer;
+}

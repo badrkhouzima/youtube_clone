@@ -6,7 +6,6 @@ export default function VideoList({
   selectedHandler,
   setToggleFaveIcon,
   favorites,
-  setIndex,
 }) {
   // const setToggleFaveIconX = () => {
   //   setToggleFaveIcon(false);
@@ -18,7 +17,7 @@ export default function VideoList({
           <VideoItem
             // channelTitle={ele.snippet.title}
             // channelImage={ele.snippet.thumbnails.url}
-            key={vidObj.id.vedoId}
+            key={index}
             vidObj={vidObj}
             selectedHandler={selectedHandler}
             setToggleFaveIcon={setToggleFaveIcon}
