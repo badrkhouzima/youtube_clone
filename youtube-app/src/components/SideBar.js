@@ -10,21 +10,32 @@ const SideBar = ({
   setShowTrending,
   setShowVideoList,
   setShowFavorites,
+  setShowHistory,
 }) => {
   const favoritesHandler = () => {
-      //debugger;
+    //debugger;
     //homepage(false);
     setShowVideoDetail(false);
     setShowTrending(false);
     setShowVideoList(false);
     setShowFavorites(true);
+    setShowHistory(false);
   };
   const homePageHandler = () => {
     //debugger
+    setShowVideoList(false);
     setShowVideoDetail(false);
     setShowTrending(true);
     setShowFavorites(true);
+    setShowHistory(true);
+  };
+  const historyHandler = () => {
+    //debugger
+    setShowVideoDetail(false);
     setShowVideoList(false);
+    setShowTrending(false);
+    setShowFavorites(false);
+    setShowHistory(true);
   };
 
   return (
@@ -35,7 +46,7 @@ const SideBar = ({
       <Link to="/favorites" onClick={favoritesHandler}>
         <SidebarRow Icon={FavoriteIcon} title="Favorites" />
       </Link>
-      <Link to="/history">
+      <Link to="/history" onClick={historyHandler}>
         <SidebarRow Icon={HistoryIcon} title="History" />
       </Link>
     </div>

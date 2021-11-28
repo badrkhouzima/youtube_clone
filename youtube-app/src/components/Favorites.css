@@ -1,16 +1,15 @@
 .favoriteVideos {
     flex: 0.5;
-    background-color: #f9f9f9;
+    flex-grow: 1;
+    background-color: #161527;
+    color: #fff;
     padding: 40px 10px;
-    padding-bottom: 0;
+    height: auto;
 }
-.FavoritesList {
-    /* flex: 0.4; */
-    /* border: 5px solid rgb(235, 190, 190); */
-    /* padding: 20px 3px;
-    background-color: aliceblue; */
-}
+
 .favoriteVideos__videos {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 10px;
 }

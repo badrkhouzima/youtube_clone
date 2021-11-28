@@ -15,8 +15,6 @@ export default function VideoList({
       {videos.map((vidObj, index) => {
         return (
           <VideoItem
-            // channelTitle={ele.snippet.title}
-            // channelImage={ele.snippet.thumbnails.url}
             key={index}
             vidObj={vidObj}
             selectedHandler={selectedHandler}

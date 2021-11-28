@@ -1,7 +1,7 @@
 import React from "react";
 import "./FavoriteVideo.css";
 import Avatar from "@mui/material/Avatar";
-function VideoItem({
+function FavoriteVideos({
   vidObj,
   selectedHandler,
   setToggleFaveIcon,
@@ -10,7 +10,6 @@ function VideoItem({
   setShowFavorites,
 }) {
   const likeClickhandler = () => {
-    // debugger;
     setShowVideoDetail(true);
     setShowFavorites(false);
     selectedHandler(vidObj);
@@ -22,23 +21,14 @@ function VideoItem({
   };
   return (
     <div className="FavoriteVideo" onClick={likeClickhandler}>
-      {/* <img
-        className="FavoriteVideo__thumbnail"
-        src={vidObj.snippet.thumbnails.medium.url}
+      <img
+        src={
+          vidObj.snippet.thumbnails.medium.url !== "null"
+            ? vidObj.snippet.thumbnails.medium.url
+            : "http://www.publicengagement.ac.uk/sites/default/files/styles/content_width/public/hero/large-crowd-of-people-small.jpg"
+        }
         alt={vidObj.snippet.description}
-      /> */}
-
-      {vidObj.snippet.thumbnails.medium.url !== "null" ? (
-        <img
-          src={vidObj.snippet.thumbnails.medium.url}
-          alt={vidObj.snippet.description}
-        />
-      ) : (
-        <img
-          src="http://www.publicengagement.ac.uk/sites/default/files/styles/content_width/public/hero/large-crowd-of-people-small.jpg"
-          alt="place holder"
-        />
-      )}
+      />
       <div className="FavoriteVideo__Info">
         <Avatar
           className="FavoriteVideo__avatar"
@@ -46,10 +36,8 @@ function VideoItem({
           src={vidObj.snippet.thumbnails.medium.url}
         />
         <h4>{vidObj.snippet.title}</h4>
-        {/* <h6>{vidObj.snippet.channelTitle}</h6> */}
-        {/* <p>{vidObj.snippet.discription}</p> */}
       </div>
     </div>
   );
 }
-export default VideoItem;
+export default FavoriteVideos;

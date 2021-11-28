@@ -1,0 +1,8 @@
+.history {
+    flex: 0.5;
+    flex-grow: 1;
+    background-color: #161527;
+    color: #fff;
+    padding: 40px 10px;
+    height: auto;
+}

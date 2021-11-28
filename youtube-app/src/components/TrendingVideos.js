@@ -36,5 +36,4 @@ function TrendingVideos({
     </div>
   );
 }
-
 export default TrendingVideos;

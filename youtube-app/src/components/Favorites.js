@@ -1,5 +1,5 @@
 import React from "react";
-import FavoriteVideo from "./FavoriteVideo";
+import FavoriteVideos from "./FavoriteVideo";
 import "./Favorites.css"
 function Favorites({
   selectedHandler,
@@ -12,14 +12,11 @@ function Favorites({
 }) {
   return (
     <div className="favoriteVideos">
-      {/* <div className="FavoritesList"></div> */}
       <h2>Favorite Videos</h2>
       <div className="favoriteVideos__videos">
         {favVideos.map((vidObj, index) => {
           return (
-            <FavoriteVideo
-              // channelTitle={ele.snippet.title}
-              // channelImage={ele.snippet.thumbnails.url}
+            <FavoriteVideos
               key={index}
               vidObj={vidObj}
               selectedHandler={selectedHandler}

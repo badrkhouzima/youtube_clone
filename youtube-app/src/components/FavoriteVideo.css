@@ -17,9 +17,11 @@
 .FavoriteVideo__Info {
     display: flex;
     justify-content: space-between;
-    margin-left: 7px;
+    margin: 10px 7px;
 }
-
+.FavoriteVideo__Info>h4{
+    padding-left: 7px;
+}
 .FavoriteVideo__avatar {
     height: 30px !important;
     width: 30px !important;

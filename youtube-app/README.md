@@ -47,6 +47,9 @@ I'm a React developper who is thriving to sharpen his capabilities through cloni
 
 one color could be changed to blue insted of red
 
+## TODO
+
+Sprint 2
 
 
 

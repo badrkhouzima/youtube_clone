@@ -10,30 +10,28 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import Avatar from "@mui/material/Avatar";
 import "./Header.css";
 
-import saveSearchedVideos from "../logic/save-search-video";
-
+import saveSearchedVideos from "../logic/save-searched-video";
+//import saveSearchedTerms from "../logic/save-searched-terms"; 
+//import retrieveSearchedVideos from "../logic/retrieve-search-video"
 const Header = ({
-  setTerm,
-  term,
   setVideos,
-  setSearchedVideos,
   setSelectedVideo,
-  favorites,
-  setToggleFaveIcon,
   setShowVideoDetail,
   setShowVideoList,
   setShowTrending,
   setShowFavorites,
+  setShowHistory,
+  setSearchedVideos,
+  term,
+  setTerm,
 }) => {
   const searchHandler = (e) => {
     setTerm(e.target.value);
   };
-
   const onsubmitHandler = async (e) => {
     e.preventDefault();
     fetchData();
   };
-
   async function fetchData() {
     const response = await youtube.get("/search", {
       params: {
@@ -41,23 +39,27 @@ const Header = ({
       },
     });
     setVideos(response.data.items);
-    saveSearchedVideos(response.data.items);
-    setSearchedVideos(response.data.items);
+    //---//
+    const timeNow = new Date();
+    const time = timeNow.getHours() + ":" + timeNow.getMinutes();
+    saveSearchedVideos(response.data.items[0], term, time);  
+    const  searchDataObject= response.data.items[0];
+      searchDataObject.searchedTerm = term;
+      searchDataObject.searchedTime = time;
+      setSearchedVideos(prev => [...prev, searchDataObject])
+    
     setSelectedVideo(response.data.items[0]);
-
-    //console.log("term=>", term);
+    //saveSearchedTerms(term);
     setShowVideoDetail(true);
     setShowVideoList(true);
     setShowTrending(false);
     setShowFavorites(false);
+    setShowHistory(false);
     setTerm("");
-    if (favorites.includes(response.data.items[0].id.videoId)) {
-      setToggleFaveIcon(true);
-    } else {
-      setToggleFaveIcon(false);
-    }
-    console.log("search call");
   }
+  // useEffect(() => {
+  //   setSearchedVideos(retrieveSearchedVideos());
+  // }, []);
 
   return (
     <div className="header">
@@ -65,7 +67,6 @@ const Header = ({
         <MenuIcon />
         <img className="header__logo" src={logo} alt="react tube" />
       </div>
-      {/* <div className="header__input"> */}
       <form onSubmit={onsubmitHandler} className="header__form">
         <input
           type="text"
@@ -77,7 +78,6 @@ const Header = ({
           <SearchIcon className="header__inputButton" />
         </button>
       </form>
-      {/* </div> */}
       <div className="header__icons">
         <VideoCallIcon className="header__icon" />
         <AppsIcon className="header__icon" />
@@ -91,7 +91,3 @@ const Header = ({
   );
 };
 export default Header;
-
-// props.submitFormHandler(term);
-// setTerm("");
-//const searchURL = requests.fetchSearchTerm + { termFromSearchBar };

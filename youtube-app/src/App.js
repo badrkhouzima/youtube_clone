@@ -7,45 +7,62 @@ import VideoList from "./components/VideoList";
 import youtube from "./api/youtube";
 import SideBar from "./components/SideBar";
 import Favorites from "./components/Favorites";
-import LastSearches from "./components/LastSearches";
+//import History from "./components/History";
+import History from "./components/History";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import retrieveFavorites from "../src/logic/retrieve-favorites";
 import retrieveFavoritesVideos from "./logic/retrieve-fav-Video";
-import retrieveSearchedVideos from "./logic/retrieve-search-video";
+///import retrieveSearchedVideos from "./logic/retrieve-search-video";
+//import retrieveSearchedTerms from "./logic/retrieve-search-terms";
 
 import saveFavoritesVideos from "./logic/save-fav-videos";
 import saveFavorites from "./logic/save-favorites";
+
 import findById from "./utils/find-element-in-array";
 import deleteFavorite from "./utils/delete-element-in-array";
 import "./components/trendingandFav.css";
-import requests from "./api/Requests";
 
+
+const retrieveSearchedVideos = () => {
+  const data = localStorage.getItem("searched-Videos");
+
+  if (data) {
+    return JSON.parse(data);
+  } else {
+    return [];
+  }
+};
 const App = () => {
-  const [favorites, setFavorites] = useState(retrieveFavorites());
   const [videos, setVideos] = useState([]);
+//export default retrieveSearchedVideos; 
+//debugger
+  const [searchedVideos, setSearchedVideos] = useState(retrieveSearchedVideos());
+  //retrieveSearchedTerms()
+  const [term, setTerm] = useState("");
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [toggleFaveIcon, setToggleFaveIcon] = useState(false);
-  //const [homepage, setHomepage] = useState(false);
+  const [favorites, setFavorites] = useState(retrieveFavorites());
   const [favVideos, setFavVideos] = useState(retrieveFavoritesVideos());
-  const [searchedVideos, setSearchedVideos] = useState(
-    retrieveSearchedVideos()
-  );
+
   const [showVideoDetail, setShowVideoDetail] = useState(false);
   const [showVideoList, setShowVideoList] = useState(false);
   const [showTrending, setShowTrending] = useState(true);
   const [showFavorites, setShowFavorites] = useState(true);
-
-  const [term, setTerm] = useState("");
-
-  const url2 = requests.fetchTrending;
+  const [showHistory, setShowHistory] = useState(true);
 
   async function fetchMyAPI() {
-    const response = await youtube.get(url2);
+    const response = await youtube.get("/search", {
+      params: {
+        chart: "mostPopular",
+        maxResults: 4,
+        q: "new tesla",
+      },
+    });
     setVideos(response.data.items);
     //setSelectedVideo(response.data.items[0]);
   }
-  const selectedHandler = (vidObjX) => {
-    setSelectedVideo(vidObjX);
+  const selectedHandler = (itemSelected) => {
+    setSelectedVideo(itemSelected);
   };
   const handleSetFavorites = (id, video) => {
     if (findById(favorites, id)) {
@@ -67,11 +84,15 @@ const App = () => {
     fetchMyAPI();
     console.log("call trending 1");
     //return () => console.log("clean it ");
-
     // useCallback to add fetchMyAPI as dependency
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+//   useEffect(()=>{
+// setSearchedVideos();
+//   }, [])
+useEffect(() => {
+  retrieveSearchedVideos();
+}, [term]);
   return (
     <Router>
       <div className="app">
@@ -84,9 +105,10 @@ const App = () => {
           //submitFormHandler={submitHandler}
           setShowTrending={setShowTrending}
           setShowFavorites={setShowFavorites}
-          favorites={favorites}
-          setToggleFaveIcon={setToggleFaveIcon}
+          //favorites={favorites}
+          //setToggleFaveIcon={setToggleFaveIcon}
           setSearchedVideos={setSearchedVideos}
+          setShowHistory={setShowHistory}
           //selectedVideo={selectedVideo}
           term={term}
           setTerm={setTerm}
@@ -98,6 +120,7 @@ const App = () => {
             setShowTrending={setShowTrending}
             setShowVideoList={setShowVideoList}
             setShowFavorites={setShowFavorites}
+            //setShowHistory={setShowHistory}
           >
             <Routes>
               <Route exact path="/" component={TrendingVideos} />
@@ -113,6 +136,7 @@ const App = () => {
               setToggleFaveIcon={setToggleFaveIcon}
               favorites={favorites}
               handleSetFavorites={handleSetFavorites}
+              selectedVideo={selectedVideo}
               //handleSetFavoritesVideo={handleSetFavoritesVideo}
               //handleSetFavoritesItems={handleSetFavoritesItems}
             />
@@ -125,7 +149,7 @@ const App = () => {
               favorites={favorites}
             />
           )}
-          <div className="trending__Favorites">
+          <div className="trending__FavoritesHistoy">
             {showTrending && (
               <TrendingVideos
                 selectedHandler={selectedHandler}
@@ -137,9 +161,20 @@ const App = () => {
                 setShowFavorites={setShowFavorites}
               />
             )}
-            <div className="LastSearches__Favorites">
-              {showFavorites && (
-                <LastSearches searchedVideos={searchedVideos} term={term} />
+            <div className="historyFavorites__Wrapper">
+              {showHistory && (
+                <History
+                  searchedVideos={searchedVideos}
+                  term={term}
+                  setShowFavorites={setShowFavorites}
+                  selectedHandler={selectedHandler}
+                  setToggleFaveIcon={setToggleFaveIcon}
+                  favorites={favorites}
+                  setShowVideoList={setShowVideoList}
+                  setShowVideoDetail={setShowVideoDetail}
+                  setShowTrending={setShowTrending}
+                  setShowHistory={setShowHistory}
+                />
               )}
               {showFavorites && (
                 <Favorites
@@ -150,6 +185,7 @@ const App = () => {
                   setShowTrending={setShowTrending}
                   setShowVideoDetail={setShowVideoDetail}
                   setShowFavorites={setShowFavorites}
+                  setShowHistory={setShowHistory}
                 />
               )}
             </div>
@@ -168,12 +204,4 @@ export default App;
 //     },
 //   });
 // }
-// const urlParam =
-// "/search",
-//   {
-//     params: {
-//       chart: "mostPopular",
-//       maxResults: 4,
-//       q: "where is the money",
-//     },
-//   };
+

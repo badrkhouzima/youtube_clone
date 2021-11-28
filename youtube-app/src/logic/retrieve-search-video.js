@@ -8,4 +8,4 @@ const retrieveSearchedVideos = () => {
   }
 };
 
-export default retrieveSearchedVideos;
+export default retrieveSearchedVideos; 
