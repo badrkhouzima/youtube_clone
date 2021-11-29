@@ -4,7 +4,9 @@
 
 .front__page {
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    overflow: hidden;
+    height: 100%;
 }
 
 .trending__FavoritesHistoy {

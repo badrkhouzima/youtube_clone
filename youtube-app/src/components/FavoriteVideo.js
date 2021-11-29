@@ -3,17 +3,19 @@ import "./FavoriteVideo.css";
 import Avatar from "@mui/material/Avatar";
 function FavoriteVideos({
   vidObj,
+  favorites,
   selectedHandler,
   setToggleFaveIcon,
-  favorites,
   setShowVideoDetail,
   setShowFavorites,
   setShowHistory,
+  setShowTrending,
 }) {
   const likeClickhandler = () => {
     setShowVideoDetail(true);
     setShowFavorites(true);
-    setShowHistory(false)
+    setShowHistory(false);
+    setShowTrending(false);
     selectedHandler(vidObj);
     if (favorites.includes(vidObj.id.videoId)) {
       setToggleFaveIcon(true);
