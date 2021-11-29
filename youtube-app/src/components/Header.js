@@ -9,10 +9,12 @@ import AppsIcon from "@mui/icons-material/Apps";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Avatar from "@mui/material/Avatar";
 import "./Header.css";
+import "moment-timezone";
+import moment from "moment";
 
 import saveSearchedVideos from "../logic/save-searched-video";
-//import saveSearchedTerms from "../logic/save-searched-terms"; 
-//import retrieveSearchedVideos from "../logic/retrieve-search-video"
+//import saveSearchedTerms from "../logic/save-searched-terms";
+//import retrieveSearchedVideos from "../logic/retrieve-search-video";
 const Header = ({
   setVideos,
   setSelectedVideo,
@@ -30,7 +32,9 @@ const Header = ({
   };
   const onsubmitHandler = async (e) => {
     e.preventDefault();
-    fetchData();
+    if (term.length >= 1) {
+      fetchData();
+    }
   };
   async function fetchData() {
     const response = await youtube.get("/search", {
@@ -39,15 +43,14 @@ const Header = ({
       },
     });
     setVideos(response.data.items);
-    //---//
-    const timeNow = new Date();
-    const time = timeNow.getHours() + ":" + timeNow.getMinutes();
-    saveSearchedVideos(response.data.items[0], term, time);  
-    const  searchDataObject= response.data.items[0];
-      searchDataObject.searchedTerm = term;
-      searchDataObject.searchedTime = time;
-      setSearchedVideos(prev => [...prev, searchDataObject])
-    
+
+    const searchTime = moment().format("HH:mm:ss");
+    saveSearchedVideos(response.data.items[0], term, searchTime);
+    const searchDataObject = response.data.items[0];
+    searchDataObject.searchedTerm = term;
+    searchDataObject.searchedTime = searchTime;
+    setSearchedVideos((prev) => [searchDataObject, ...prev]);
+
     setSelectedVideo(response.data.items[0]);
     //saveSearchedTerms(term);
     setShowVideoDetail(true);
@@ -57,10 +60,6 @@ const Header = ({
     setShowHistory(false);
     setTerm("");
   }
-  // useEffect(() => {
-  //   setSearchedVideos(retrieveSearchedVideos());
-  // }, []);
-
   return (
     <div className="header">
       <div className="header__left">

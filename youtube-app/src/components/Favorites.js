@@ -1,6 +1,6 @@
 import React from "react";
 import FavoriteVideos from "./FavoriteVideo";
-import "./Favorites.css"
+import "./Favorites.css";
 function Favorites({
   selectedHandler,
   setToggleFaveIcon,
@@ -9,6 +9,7 @@ function Favorites({
   setShowTrending,
   setShowVideoDetail,
   setShowFavorites,
+  setShowHistory,
 }) {
   return (
     <div className="favoriteVideos">
@@ -25,6 +26,7 @@ function Favorites({
               setShowTrending={setShowTrending}
               setShowVideoDetail={setShowVideoDetail}
               setShowFavorites={setShowFavorites}
+              setShowHistory={setShowHistory}
             />
           );
         })}

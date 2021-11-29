@@ -8,10 +8,12 @@ function FavoriteVideos({
   favorites,
   setShowVideoDetail,
   setShowFavorites,
+  setShowHistory,
 }) {
   const likeClickhandler = () => {
     setShowVideoDetail(true);
-    setShowFavorites(false);
+    setShowFavorites(true);
+    setShowHistory(false)
     selectedHandler(vidObj);
     if (favorites.includes(vidObj.id.videoId)) {
       setToggleFaveIcon(true);

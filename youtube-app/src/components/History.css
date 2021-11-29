@@ -2,7 +2,8 @@
     flex: 0.5;
     flex-grow: 1;
     background-color: #161527;
-    color: #fff;
+    color: #ffffff;
     padding: 40px 10px;
-    height: auto;
+    height: 100vh;
+
 }

@@ -12,13 +12,14 @@ function VideoCard({
   setShowVideoList,
   setShowTrending,
   setShowFavorites,
+  setShowHistory,
 }) {
   const likeClickhandler = () => {
     setShowVideoDetail(true);
     setShowVideoList(false);
     setShowFavorites(false);
-    
     //setShowTrending(false);
+    setShowHistory(false);
 
     selectedHandler(vidObj);
     //setHomepage(true);

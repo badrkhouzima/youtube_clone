@@ -6,10 +6,11 @@ function TrendingVideos({
   selectedHandler,
   setToggleFaveIcon,
   favorites,
-  //setHomepage,
   setShowVideoDetail,
   setShowVideoList,
   setShowFavorites,
+  setShowTrending,
+  setShowHistory,
 }) {
   return (
     <div className="trendingVideos">
@@ -18,17 +19,16 @@ function TrendingVideos({
         {videos.map((vidObj, index) => {
           return (
             <VideoCard
-              // channelTitle={ele.snippet.title}
-              // channelImage={ele.snippet.thumbnails.url}
               key={index}
               vidObj={vidObj}
               selectedHandler={selectedHandler}
               setToggleFaveIcon={setToggleFaveIcon}
               favorites={favorites}
-              //setHomepage={setHomepage}
               setShowVideoDetail={setShowVideoDetail}
               setShowVideoList={setShowVideoList}
               setShowFavorites={setShowFavorites}
+              setShowTrending={setShowTrending}
+              setShowHistory={setShowHistory}
             />
           );
         })}

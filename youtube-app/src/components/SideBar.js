@@ -22,7 +22,6 @@ const SideBar = ({
     setShowHistory(false);
   };
   const homePageHandler = () => {
-    //debugger
     setShowVideoList(false);
     setShowVideoDetail(false);
     setShowTrending(true);
@@ -30,7 +29,6 @@ const SideBar = ({
     setShowHistory(true);
   };
   const historyHandler = () => {
-    //debugger
     setShowVideoDetail(false);
     setShowVideoList(false);
     setShowTrending(false);

@@ -5,8 +5,8 @@ const saveSearchedVideos = (video, searchedtermParam, timeParam) => {
   if (existingEntriesVideo == null) existingEntriesVideo = [];
   video.snippet.searchedTerm = searchedtermParam;
   video.snippet.searchedTime = timeParam;
-  existingEntriesVideo.push(video);
+  existingEntriesVideo.unshift(video);
   localStorage.setItem("searched-Videos", JSON.stringify(existingEntriesVideo));
 };
 
-export default saveSearchedVideos; 
+export default saveSearchedVideos;

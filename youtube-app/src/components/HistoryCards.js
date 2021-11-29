@@ -3,7 +3,7 @@ import "./HistoryCards.css";
 import Moment from "react-moment";
 import "moment-timezone";
 import moment from "moment";
-//import retrieveSearchedVideos from "../logic/retrieve-search-video"
+
 function HistoryCards({
   searchedVideo,
   setToggleFaveIcon,
@@ -15,10 +15,11 @@ function HistoryCards({
   setShowFavorites,
   setShowHistory,
 }) {
-  const start = moment();
-  //.add(0, "m");
+  const start = moment(
+    searchedVideo.snippet.searchedTime,
+    "HH:mm:ss"
+  ).startOf();
   const historyPlayHandler = () => {
-    //debugger;
     selectedHandler(searchedVideo);
     setShowVideoDetail(true);
     setShowVideoList(true);
@@ -46,7 +47,12 @@ function HistoryCards({
           <h3>{searchedVideo.snippet.searchedTerm}</h3>
 
           <h3>
-            <Moment date={start} format="hh:mm:ss" durationFromNow />
+            <Moment
+              date={start}
+              format="h [hrs and] m [mins] s [s]•
+            ago"
+              durationFromNow
+            />
           </h3>
           <p> </p>
         </div>

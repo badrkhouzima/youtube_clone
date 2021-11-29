@@ -1,13 +1,10 @@
 .videoItem {
     display: flex;
-    /* padding: 5px; */
-    border: 1px solid rgb(255, 8, 8);
     padding-bottom: 20px;
 }
 .videoItem__thumbnail {
     height: 100px;
     width: 150px;
-    border: 1px solid rgb(28, 8, 255);
     cursor: pointer;
 }
 .videoItem__Info {

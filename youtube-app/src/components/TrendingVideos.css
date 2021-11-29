@@ -2,12 +2,7 @@
     background-color: #161527;
     color: #fff;
     padding: 40px 10px;
-    border: 1px solid red;
-    height: 90vh;
-    /* margin-right: auto;
-    margin-left: auto; */
- 
-   
+    height: 100%;
 }
 
 .trendingVideos__videos {

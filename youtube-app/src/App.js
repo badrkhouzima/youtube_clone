@@ -22,7 +22,6 @@ import findById from "./utils/find-element-in-array";
 import deleteFavorite from "./utils/delete-element-in-array";
 import "./components/trendingandFav.css";
 
-
 const retrieveSearchedVideos = () => {
   const data = localStorage.getItem("searched-Videos");
 
@@ -34,9 +33,11 @@ const retrieveSearchedVideos = () => {
 };
 const App = () => {
   const [videos, setVideos] = useState([]);
-//export default retrieveSearchedVideos; 
-//debugger
-  const [searchedVideos, setSearchedVideos] = useState(retrieveSearchedVideos());
+  //export default retrieveSearchedVideos;
+  //debugger
+  const [searchedVideos, setSearchedVideos] = useState(
+    retrieveSearchedVideos()
+  );
   //retrieveSearchedTerms()
   const [term, setTerm] = useState("");
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -87,12 +88,10 @@ const App = () => {
     // useCallback to add fetchMyAPI as dependency
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-//   useEffect(()=>{
-// setSearchedVideos();
-//   }, [])
-useEffect(() => {
-  retrieveSearchedVideos();
-}, [term]);
+ 
+  useEffect(() => {
+    retrieveSearchedVideos();
+  }, [term]);
   return (
     <Router>
       <div className="app">
@@ -102,7 +101,6 @@ useEffect(() => {
           setSelectedVideo={setSelectedVideo}
           setShowVideoDetail={setShowVideoDetail}
           setShowVideoList={setShowVideoList}
-          //submitFormHandler={submitHandler}
           setShowTrending={setShowTrending}
           setShowFavorites={setShowFavorites}
           //favorites={favorites}
@@ -115,12 +113,11 @@ useEffect(() => {
         />
         <div className="front__page">
           <SideBar
-            // homepage={homepage}
             setShowVideoDetail={setShowVideoDetail}
             setShowTrending={setShowTrending}
             setShowVideoList={setShowVideoList}
             setShowFavorites={setShowFavorites}
-            //setShowHistory={setShowHistory}
+            setShowHistory={setShowHistory}
           >
             <Routes>
               <Route exact path="/" component={TrendingVideos} />
@@ -130,15 +127,12 @@ useEffect(() => {
           </SideBar>
           {showVideoDetail && (
             <VideoDetails
-              // className="sidebar__page"
               video={selectedVideo}
               toggleFaveIcon={toggleFaveIcon}
               setToggleFaveIcon={setToggleFaveIcon}
               favorites={favorites}
               handleSetFavorites={handleSetFavorites}
               selectedVideo={selectedVideo}
-              //handleSetFavoritesVideo={handleSetFavoritesVideo}
-              //handleSetFavoritesItems={handleSetFavoritesItems}
             />
           )}
           {showVideoList && (
@@ -156,9 +150,11 @@ useEffect(() => {
                 videos={videos}
                 setToggleFaveIcon={setToggleFaveIcon}
                 favorites={favorites}
+                setShowTrending={setShowTrending}
                 setShowVideoDetail={setShowVideoDetail}
                 setShowVideoList={setShowVideoList}
                 setShowFavorites={setShowFavorites}
+                setShowHistory={setShowHistory}
               />
             )}
             <div className="historyFavorites__Wrapper">
@@ -204,4 +200,3 @@ export default App;
 //     },
 //   });
 // }
-
