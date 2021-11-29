@@ -5,6 +5,12 @@
   flex-direction: column;
 
 }
+.videoCard__Info {
+  padding-top: 12px;
+}
+.videoItem__avatar {
+  margin-bottom: 12px;
+}
 .videoCard__thumbnail {
   height: 140px;
   width: 250px;

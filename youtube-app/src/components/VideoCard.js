@@ -7,7 +7,6 @@ function VideoCard({
   selectedHandler,
   setToggleFaveIcon,
   favorites,
-  setHomepage,
   setShowVideoDetail,
   setShowVideoList,
   setShowTrending,
@@ -20,9 +19,7 @@ function VideoCard({
     setShowFavorites(false);
     //setShowTrending(false);
     setShowHistory(false);
-
     selectedHandler(vidObj);
-    //setHomepage(true);
     if (favorites.includes(vidObj.id.videoId)) {
       setToggleFaveIcon(true);
     } else {

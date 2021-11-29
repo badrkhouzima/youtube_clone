@@ -13,6 +13,7 @@ function History({
   setShowFavorites,
   setShowHistory,
 }) {
+ 
   return (
     <div className="history">
       <h2>Last Searches</h2>

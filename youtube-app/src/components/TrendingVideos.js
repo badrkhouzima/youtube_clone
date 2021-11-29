@@ -1,6 +1,7 @@
 import React from "react";
 import VideoCard from "./VideoCard";
 import "./TrendingVideos.css";
+
 function TrendingVideos({
   videos,
   selectedHandler,
@@ -12,6 +13,7 @@ function TrendingVideos({
   setShowTrending,
   setShowHistory,
 }) {
+  
   return (
     <div className="trendingVideos">
       <h2>Trending videos</h2>

@@ -11,6 +11,8 @@ function Favorites({
   setShowFavorites,
   setShowHistory,
 }) {
+  // setShowHistory(false);
+  // setShowTrending(false);
   return (
     <div className="favoriteVideos">
       <h2>Favorite Videos</h2>

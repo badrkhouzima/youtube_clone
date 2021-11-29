@@ -13,8 +13,6 @@ const SideBar = ({
   setShowHistory,
 }) => {
   const favoritesHandler = () => {
-    //debugger;
-    //homepage(false);
     setShowVideoDetail(false);
     setShowTrending(false);
     setShowVideoList(false);
