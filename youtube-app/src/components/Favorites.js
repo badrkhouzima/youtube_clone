@@ -6,13 +6,12 @@ function Favorites({
   setToggleFaveIcon,
   favVideos,
   favorites,
-  setShowTrending,
   setShowVideoDetail,
+  setShowVideoList,
+  setShowTrending,
   setShowFavorites,
   setShowHistory,
 }) {
-  // setShowHistory(false);
-  // setShowTrending(false);
   return (
     <div className="favoriteVideos">
       <h2>Favorite Videos</h2>
@@ -25,8 +24,9 @@ function Favorites({
               selectedHandler={selectedHandler}
               setToggleFaveIcon={setToggleFaveIcon}
               favorites={favorites}
-              setShowTrending={setShowTrending}
+              setShowVideoList={setShowVideoList}
               setShowVideoDetail={setShowVideoDetail}
+              setShowTrending={setShowTrending}
               setShowFavorites={setShowFavorites}
               setShowHistory={setShowHistory}
             />

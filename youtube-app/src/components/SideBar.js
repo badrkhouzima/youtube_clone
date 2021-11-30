@@ -6,22 +6,22 @@ import HistoryIcon from "@mui/icons-material/History";
 import { Link } from "react-router-dom";
 
 const SideBar = ({
+  setShowVideoList,
   setShowVideoDetail,
   setShowTrending,
-  setShowVideoList,
   setShowFavorites,
   setShowHistory,
 }) => {
   const favoritesHandler = () => {
     setShowVideoDetail(false);
-    setShowTrending(false);
     setShowVideoList(false);
+    setShowTrending(false);
     setShowFavorites(true);
     setShowHistory(false);
   };
   const homePageHandler = () => {
-    setShowVideoList(false);
     setShowVideoDetail(false);
+    setShowVideoList(false);
     setShowTrending(true);
     setShowFavorites(true);
     setShowHistory(true);

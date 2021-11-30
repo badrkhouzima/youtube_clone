@@ -5,12 +5,11 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 
 function VideoDetails({
   video,
-  setToggleFaveIcon,
-  toggleFaveIcon,
   favorites,
-  handleSetFavorites,
-  handleSetFavoritesVideo,
   selectedVideo,
+  toggleFaveIcon,
+  setToggleFaveIcon,
+  handleSetFavorites,
 }) {
   const toggleFavorite = () => {
     setToggleFaveIcon(() => !toggleFaveIcon);

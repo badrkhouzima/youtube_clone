@@ -38,6 +38,7 @@ const App = () => {
   //retrieveSearchedTerms()
   const [term, setTerm] = useState("");
   const [toggleFaveIcon, setToggleFaveIcon] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState(null);
   const [favorites, setFavorites] = useState(retrieveFavorites());
   const [favVideos, setFavVideos] = useState(retrieveFavoritesVideos());
   const [showVideoDetail, setShowVideoDetail] = useState(false);
@@ -45,16 +46,20 @@ const App = () => {
   const [showTrending, setShowTrending] = useState(true);
   const [showFavorites, setShowFavorites] = useState(true);
   const [showHistory, setShowHistory] = useState(true);
-  const [selectedVideo, setSelectedVideo] = useState(null);
 
   const history = useNavigate();
 
   async function fetchMyAPI() {
     const response = await youtube.get("/search", {
+      // part: ["snippet"],
+      // forMine: true,
+      // maxResults: 4,
+      // q: "tech|programming -fishing",
+      // type: ["video"],
       params: {
         chart: "mostPopular",
         maxResults: 4,
-        q: "new tesla",
+        q: "tech|programming -fishing",
       },
     });
     setVideos(response.data.items);
@@ -80,7 +85,6 @@ const App = () => {
 
   useEffect(() => {
     fetchMyAPI();
-    console.log("call trending 1");
     //return () => console.log("clean it ");
     // useCallback to add fetchMyAPI as dependency
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,34 +95,28 @@ const App = () => {
   }, [term]);
   useEffect(() => {
     history("/");
-    console.log("run history");
     // eslint-disable-next-line
   }, []);
 
   return (
-    // <Router>
     <div className="app">
       <Header
-        //videos={videos}
+        term={term}
+        setTerm={setTerm}
         setVideos={setVideos}
         setSelectedVideo={setSelectedVideo}
+        setSearchedVideos={setSearchedVideos}
         setShowVideoDetail={setShowVideoDetail}
         setShowVideoList={setShowVideoList}
         setShowTrending={setShowTrending}
         setShowFavorites={setShowFavorites}
-        //favorites={favorites}
-        //setToggleFaveIcon={setToggleFaveIcon}
-        setSearchedVideos={setSearchedVideos}
         setShowHistory={setShowHistory}
-        //selectedVideo={selectedVideo}
-        term={term}
-        setTerm={setTerm}
       />
       <div className="front__page">
         <SideBar
           setShowVideoDetail={setShowVideoDetail}
-          setShowTrending={setShowTrending}
           setShowVideoList={setShowVideoList}
+          setShowTrending={setShowTrending}
           setShowFavorites={setShowFavorites}
           setShowHistory={setShowHistory}
         >
@@ -131,31 +129,31 @@ const App = () => {
         {showVideoDetail && (
           <VideoDetails
             video={selectedVideo}
+            favorites={favorites}
             toggleFaveIcon={toggleFaveIcon}
             setToggleFaveIcon={setToggleFaveIcon}
-            favorites={favorites}
             handleSetFavorites={handleSetFavorites}
             selectedVideo={selectedVideo}
           />
         )}
         {showVideoList && (
           <VideoList
-            selectedHandler={selectedHandler}
             videos={videos}
-            setToggleFaveIcon={setToggleFaveIcon}
             favorites={favorites}
+            selectedHandler={selectedHandler}
+            setToggleFaveIcon={setToggleFaveIcon}
           />
         )}
         <div className="trending__FavoritesHistoy">
           {showTrending && (
             <TrendingVideos
-              selectedHandler={selectedHandler}
               videos={videos}
-              setToggleFaveIcon={setToggleFaveIcon}
               favorites={favorites}
-              setShowTrending={setShowTrending}
+              selectedHandler={selectedHandler}
+              setToggleFaveIcon={setToggleFaveIcon}
               setShowVideoDetail={setShowVideoDetail}
               setShowVideoList={setShowVideoList}
+              setShowTrending={setShowTrending}
               setShowFavorites={setShowFavorites}
               setShowHistory={setShowHistory}
             />
@@ -181,6 +179,7 @@ const App = () => {
                 setToggleFaveIcon={setToggleFaveIcon}
                 favVideos={favVideos}
                 favorites={favorites}
+                setShowVideoList={setShowVideoList}
                 setShowTrending={setShowTrending}
                 setShowVideoDetail={setShowVideoDetail}
                 setShowFavorites={setShowFavorites}
@@ -191,15 +190,6 @@ const App = () => {
         </div>
       </div>
     </div>
-    // </Router>
   );
 };
 export default App;
-// const relatedVideos = async ()=>{
-//   const response = await youtube.get("search", {
-//     params: {
-//       relatedToVideoId = {},
-//        type = "video"
-//     },
-//   });
-// }

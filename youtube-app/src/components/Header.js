@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../assets/reactube_logo.png";
-//import badrPic from "../assets/badr_pic.jpg";
 import youtube from "../api/youtube";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,11 +10,12 @@ import Avatar from "@mui/material/Avatar";
 import "./Header.css";
 import "moment-timezone";
 import moment from "moment";
-
 import saveSearchedVideos from "../logic/save-searched-video";
 //import saveSearchedTerms from "../logic/save-searched-terms";
 //import retrieveSearchedVideos from "../logic/retrieve-search-video";
 const Header = ({
+  term,
+  setTerm,
   setVideos,
   setSelectedVideo,
   setShowVideoDetail,
@@ -24,8 +24,6 @@ const Header = ({
   setShowFavorites,
   setShowHistory,
   setSearchedVideos,
-  term,
-  setTerm,
 }) => {
   const searchHandler = (e) => {
     setTerm(e.target.value);
@@ -43,14 +41,12 @@ const Header = ({
       },
     });
     setVideos(response.data.items);
-
     const searchTime = moment().format("HH:mm:ss");
     saveSearchedVideos(response.data.items[0], term, searchTime);
     const searchDataObject = response.data.items[0];
     searchDataObject.searchedTerm = term;
     searchDataObject.searchedTime = searchTime;
     setSearchedVideos((prev) => [searchDataObject, ...prev]);
-
     setSelectedVideo(response.data.items[0]);
     //saveSearchedTerms(term);
     setShowVideoDetail(true);

@@ -1,52 +1,57 @@
-.header{
+.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
     position: sticky;
-    top:0;
+    top: 0;
     z-index: 100;
     background-color: white;
 }
-.header__left{
- display: flex;
- align-items: center;
+
+.header__left {
+    display: flex;
+    align-items: center;
 }
 
-.header__logo{
+.header__logo {
     height: 35px;
     object-fit: contain;
     margin-left: 30px;
 }
 
-.header__form >input {
+.header__form>input {
     flex: 1;
-    border:none;
+    border: none;
     border: 1px solid lightgrey;
     margin-left: 3px;
 }
+
 .header__form {
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     width: 40%;
-     border: 1px solid black;
-   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    border: 1px solid black;
+
 }
 
-.header__form button{
-       border: none;
+.header__form button {
+    border: none;
 }
+
 .header__icon {
- margin-left: 8px;
+    margin-left: 8px;
 }
-.header__inputButton{
+
+.header__inputButton {
     width: 50px !important;
     background-color: #fafafa;
     border-left: 1px solid black;
-    color:grey;
+    color: grey;
 }
-.header__icons{
+
+.header__icons {
     display: flex;
     align-items: center;
 

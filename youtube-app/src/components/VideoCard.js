@@ -15,9 +15,9 @@ function VideoCard({
 }) {
   const likeClickhandler = () => {
     setShowVideoDetail(true);
-    setShowVideoList(false);
+    setShowVideoList(true);
     setShowFavorites(false);
-    //setShowTrending(false);
+    setShowTrending(false);
     setShowHistory(false);
     selectedHandler(vidObj);
     if (favorites.includes(vidObj.id.videoId)) {

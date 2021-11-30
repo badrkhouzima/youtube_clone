@@ -7,13 +7,15 @@ function FavoriteVideos({
   selectedHandler,
   setToggleFaveIcon,
   setShowVideoDetail,
+  setShowVideoList,
   setShowFavorites,
   setShowHistory,
   setShowTrending,
 }) {
   const likeClickhandler = () => {
     setShowVideoDetail(true);
-    setShowFavorites(true);
+    setShowVideoList(true);
+    setShowFavorites(false);
     setShowHistory(false);
     setShowTrending(false);
     selectedHandler(vidObj);
