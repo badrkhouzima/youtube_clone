@@ -1,8 +1,18 @@
+.home__Page {
+    display: flex;
+    flex-direction: column;
+}
+
+.frontPage__HistoryFavorites {
+    display: flex;
+}
+
 .trendingVideos {
+    border: 3px solid blue;
     background-color: #161527;
     color: #fff;
     padding: 40px 10px;
-    height: 100%;
+    
 }
 
 .trendingVideos__videos {
@@ -10,4 +20,5 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 40px 10px;
+    /* margin: 40px 10px; */
 }

@@ -1,29 +1,13 @@
 import React from "react";
 import "./FavoriteVideo.css";
 import Avatar from "@mui/material/Avatar";
-function FavoriteVideos({
-  vidObj,
-  favorites,
-  selectedHandler,
-  setToggleFaveIcon,
-  setShowVideoDetail,
-  setShowVideoList,
-  setShowFavorites,
-  setShowHistory,
-  setShowTrending,
-}) {
+import { useNavigate } from "react-router-dom";
+
+function FavoriteVideos({ vidObj, selectedHandler }) {
+  const navigate = useNavigate();
   const likeClickhandler = () => {
-    setShowVideoDetail(true);
-    setShowVideoList(true);
-    setShowFavorites(false);
-    setShowHistory(false);
-    setShowTrending(false);
     selectedHandler(vidObj);
-    if (favorites.includes(vidObj.id.videoId)) {
-      setToggleFaveIcon(true);
-    } else {
-      setToggleFaveIcon(false);
-    }
+    navigate("/watchvideo");
   };
   return (
     <div className="FavoriteVideo" onClick={likeClickhandler}>

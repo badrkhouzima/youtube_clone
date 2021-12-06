@@ -1,7 +1,7 @@
-const findElementInArray = (array, element) => {
-     if( array.includes(element)){
-           return true
-     }
-}
-
+const findElementInArray = (object, element) => {
+  const getIds = object.map((ele) => ele.id.videoId);
+  if (getIds.includes(element)) {
+    return true;
+  }
+};
 export default findElementInArray;

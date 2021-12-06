@@ -4,16 +4,8 @@ import HistoryCards from "./HistoryCards";
 
 function History({
   searchedVideos,
-  setToggleFaveIcon,
   selectedHandler,
-  favorites,
-  setShowVideoList,
-  setShowVideoDetail,
-  setShowTrending,
-  setShowFavorites,
-  setShowHistory,
 }) {
- 
   return (
     <div className="history">
       <h2>Last Searches</h2>
@@ -23,14 +15,7 @@ function History({
             <HistoryCards
               key={index}
               searchedVideo={searchedVideo}
-              selectedHandler={selectedHandler}
-              setToggleFaveIcon={setToggleFaveIcon}
-              favorites={favorites}
-              setShowVideoList={setShowVideoList}
-              setShowVideoDetail={setShowVideoDetail}
-              setShowTrending={setShowTrending}
-              setShowFavorites={setShowFavorites}
-              setShowHistory={setShowHistory}
+              selectedHandler={selectedHandler}     
             />
           );
         })}

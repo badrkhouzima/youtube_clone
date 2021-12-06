@@ -1,51 +1,40 @@
 import React from "react";
 import SidebarRow from "./SidebarRow";
+import "./SideBar.css";
 import HomeIcon from "@mui/icons-material/Home";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import HistoryIcon from "@mui/icons-material/History";
 import { Link } from "react-router-dom";
 
-const SideBar = ({
-  setShowVideoList,
-  setShowVideoDetail,
-  setShowTrending,
-  setShowFavorites,
-  setShowHistory,
-}) => {
+const SideBar = ({ setShowVideoDetail }) => {
+  const homeHandler =()=>{
+    setShowVideoDetail(false);
+  }
   const favoritesHandler = () => {
     setShowVideoDetail(false);
-    setShowVideoList(false);
-    setShowTrending(false);
-    setShowFavorites(true);
-    setShowHistory(false);
-  };
-  const homePageHandler = () => {
-    setShowVideoDetail(false);
-    setShowVideoList(false);
-    setShowTrending(true);
-    setShowFavorites(true);
-    setShowHistory(true);
   };
   const historyHandler = () => {
     setShowVideoDetail(false);
-    setShowVideoList(false);
-    setShowTrending(false);
-    setShowFavorites(false);
-    setShowHistory(true);
   };
 
   return (
-    <div className="sidebar">
-      <Link to="/" onClick={homePageHandler}>
-        <SidebarRow Icon={HomeIcon} title="Home" />
-      </Link>
-      <Link to="/favorites" onClick={favoritesHandler}>
-        <SidebarRow Icon={FavoriteIcon} title="Favorites" />
-      </Link>
-      <Link to="/history" onClick={historyHandler}>
-        <SidebarRow Icon={HistoryIcon} title="History" />
-      </Link>
-    </div>
+    <>
+      <div className="sidebar">
+        <Link to="/" onClick={homeHandler}>
+          <SidebarRow Icon={HomeIcon} title="Home" />
+        </Link>
+        <Link to="/favorites" onClick={favoritesHandler}>
+          <SidebarRow
+            Icon={FavoriteIcon}
+            onClick={favoritesHandler}
+            title="Favorites"
+          />
+        </Link>
+        <Link to="/history" onClick={historyHandler}>
+          <SidebarRow Icon={HistoryIcon} title="History" />
+        </Link>
+      </div>
+    </>
   );
 };
 export default SideBar;

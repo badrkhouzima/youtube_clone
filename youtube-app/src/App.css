@@ -1,16 +1,7 @@
-.front__page {
-    display: flex;
-    overflow: hidden;
-    height: 100%;
+.front__Page {
+     display: flex;
 }
-
-.trending__FavoritesHistoy {
-    flex: 1;
+.History__Favorites {
     display: flex;
-    flex-direction: column;
-}
-
-.historyFavorites__Wrapper {
-    display: flex;
-    background-color: #161527;
+    height: 100vh;
 }

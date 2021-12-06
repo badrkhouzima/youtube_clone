@@ -23,9 +23,11 @@
     height: 50px;
     border-radius: 50px;
 }
-.historyCards__Info > h3 {
+
+.historyCards__Info>h3 {
     padding-left: 10px;
 }
+
 .historyCards__Play>input {
     background-color: red;
     border: none;

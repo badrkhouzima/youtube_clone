@@ -1,17 +1,7 @@
 import React from "react";
 import FavoriteVideos from "./FavoriteVideo";
 import "./Favorites.css";
-function Favorites({
-  selectedHandler,
-  setToggleFaveIcon,
-  favVideos,
-  favorites,
-  setShowVideoDetail,
-  setShowVideoList,
-  setShowTrending,
-  setShowFavorites,
-  setShowHistory,
-}) {
+function Favorites({ selectedHandler, favVideos }) {
   return (
     <div className="favoriteVideos">
       <h2>Favorite Videos</h2>
@@ -22,13 +12,6 @@ function Favorites({
               key={index}
               vidObj={vidObj}
               selectedHandler={selectedHandler}
-              setToggleFaveIcon={setToggleFaveIcon}
-              favorites={favorites}
-              setShowVideoList={setShowVideoList}
-              setShowVideoDetail={setShowVideoDetail}
-              setShowTrending={setShowTrending}
-              setShowFavorites={setShowFavorites}
-              setShowHistory={setShowHistory}
             />
           );
         })}

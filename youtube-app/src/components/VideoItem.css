@@ -1,16 +1,24 @@
 .videoItem {
     display: flex;
-    padding-bottom: 20px;
-}
-.videoItem__thumbnail {
-    height: 100px;
-    width: 150px;
-    cursor: pointer;
+     flex-direction: column;
+     align-items: center;
+     /* height: 140px; */
+     /* height: auto; */
+      width: 270px;
 }
 .videoItem__Info {
     display: flex;
-    flex-direction: column;
-    margin-left: 15px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.videoItem__avatar {
+    margin-bottom: 12px;
+    margin-right: 12px;
+}
+.videoItem__thumbnail {
+    /* height: 140px; */
+    width: 270px;
+    cursor: pointer;
 }
 /* .videoItem {
     display: flex;

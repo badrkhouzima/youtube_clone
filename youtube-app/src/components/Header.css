@@ -25,6 +25,7 @@
     border: none;
     border: 1px solid lightgrey;
     margin-left: 3px;
+    
 }
 
 .header__form {
@@ -38,6 +39,7 @@
 
 .header__form button {
     border: none;
+    cursor: pointer;
 }
 
 .header__icon {

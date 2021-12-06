@@ -1,7 +1,9 @@
 .videoList {
-    /* flex: 0.2; */
-    flex-grow: 2;
+    flex: 0.2;
+    /* flex-grow: 2; */
     padding: 46px 3px;
     background-color: aliceblue;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

@@ -1,16 +1,14 @@
 .videodetails {
-    /* flex: 0.6; */
+    flex: 0.6;
     display: flex;
     flex-direction: column;
     padding: 40px 10px;
     background-color: aliceblue;
-    height: 100vh;
-   
-
+    height: 100%;
 }
 
 iframe {
-    width: 800px;
+    width: auto;
     height: 400px;
     margin: 10px;
 }
@@ -21,9 +19,11 @@ iframe {
     padding-left: 18px;
     width: 800px;
 }
-.videodetails__vidinfo >h4{
-    padding-bottom: 10px ;
+
+.videodetails__vidinfo>h4 {
+    padding-bottom: 10px;
 }
+
 .timeAndfavorite {
     display: flex;
     justify-content: space-between;

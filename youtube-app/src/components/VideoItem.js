@@ -1,39 +1,38 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./VideoItem.css";
-//import Avatar from "@mui/material/Avatar";
-function VideoItem({
-  vidObj,
-  selectedHandler,
-  setToggleFaveIcon,
-  favorites,
-}) {
-  const likeClickhandler = () => {
-   
-    selectedHandler(vidObj);
-    if (favorites.includes(vidObj.id.videoId)) {
-      setToggleFaveIcon(true);
-    } else {
-      setToggleFaveIcon(false);
-    }
+import Avatar from "@mui/material/Avatar";
+
+function VideoItem({ video, selectedHandler }) {
+  const navigate = useNavigate();
+  const handleClickVideo = () => {
+    selectedHandler(video);
+    navigate("/watchvideo");
   };
+
   return (
-    <div className="videoItem" onClick={likeClickhandler}>
+    <div className="videoItem" onClick={handleClickVideo}>
       <img
         className="videoItem__thumbnail"
-        src={vidObj.snippet.thumbnails.medium.url !== "null" ? vidObj.snippet.thumbnails.medium.url : "http://www.publicengagement.ac.uk/sites/default/files/styles/content_width/public/hero/large-crowd-of-people-small.jpg" }
-        alt={vidObj.snippet.description}
+        src={
+          video.snippet.thumbnails.medium.url !== "null"
+            ? video.snippet.thumbnails.medium.url
+            : "http://www.publicengagement.ac.uk/sites/default/files/styles/content_width/public/hero/large-crowd-of-people-small.jpg"
+        }
+        alt={video.snippet.description}
       />
       <div className="videoItem__Info">
-        <h4>{vidObj.snippet.title}</h4>
-        <h6>{vidObj.snippet.channelTitle}</h6>
-        <p>{vidObj.snippet.discription}</p>
-      </div>
-      
-      {/* <Avatar
+        <Avatar
           className="videoItem__avatar"
-          alt={vidObj.snippet.channelTitle}
-          src={vidObj.snippet.thumbnails.medium.url}
-        /> */}
+          alt={video.snippet.channelTitle}
+          src={
+            video.snippet.thumbnails.medium.url !== "null"
+              ? video.snippet.thumbnails.medium.url
+              : "http://www.publicengagement.ac.uk/sites/default/files/styles/content_width/public/hero/large-crowd-of-people-small.jpg"
+          }
+        />
+        <h4>{video.snippet.title}</h4>
+      </div>
     </div>
   );
 }

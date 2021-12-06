@@ -3,34 +3,17 @@ import "./HistoryCards.css";
 import Moment from "react-moment";
 import "moment-timezone";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
-function HistoryCards({
-  searchedVideo,
-  setToggleFaveIcon,
-  selectedHandler,
-  favorites,
-  setShowVideoList,
-  setShowVideoDetail,
-  setShowTrending,
-  setShowFavorites,
-  setShowHistory,
-}) {
+function HistoryCards({ searchedVideo, selectedHandler }) {
+  const navigate = useNavigate();
   const start = moment(
     searchedVideo.snippet.searchedTime,
     "HH:mm:ss"
   ).startOf();
   const historyPlayHandler = () => {
     selectedHandler(searchedVideo);
-    setShowVideoDetail(true);
-    setShowVideoList(true);
-    setShowTrending(false);
-    setShowFavorites(false);
-    setShowHistory(false);
-    if (favorites.includes(searchedVideo.id.videoId)) {
-      setToggleFaveIcon(true);
-    } else {
-      setToggleFaveIcon(false);
-    }
+    navigate("/watchvideo");
   };
   return (
     <div className="historyCards">
@@ -45,7 +28,6 @@ function HistoryCards({
             alt=""
           />
           <h3>{searchedVideo.snippet.searchedTerm}</h3>
-
           <h3>
             <Moment
               date={start}
