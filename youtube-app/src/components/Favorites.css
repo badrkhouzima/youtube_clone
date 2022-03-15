@@ -1,0 +1,16 @@
+.favoriteVideos {
+     flex: 0.5;
+    flex-grow: 1;
+    background-color: #161527;
+    color: #fff;
+    padding: 40px 10px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.favoriteVideos__videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 10px;
+}

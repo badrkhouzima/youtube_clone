@@ -1,3 +1,7 @@
-.App {
-  text-align: center;
+.front__Page {
+     display: flex;
+}
+.History__Favorites {
+    display: flex;
+    height: 100vh;
 }

@@ -1,0 +1,30 @@
+.FavoriteVideo {
+    margin-bottom: 40px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+}
+
+.FavoriteVideo__thumbnail {
+    height: 140px;
+    width: 250px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.FavoriteVideo__Info {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 7px;
+}
+
+.FavoriteVideo__Info>h4 {
+    padding-left: 7px;
+}
+
+.FavoriteVideo__avatar {
+    height: 30px !important;
+    width: 30px !important;
+}

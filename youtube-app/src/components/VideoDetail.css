@@ -1,0 +1,41 @@
+.videodetails {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 10px;
+    background-color: aliceblue;
+    height: 100%;
+}
+
+iframe {
+    width: auto;
+    height: 400px;
+    margin: 10px;
+}
+
+.videodetails__vidinfo {
+    display: flex;
+    flex-direction: column;
+    padding-left: 18px;
+    width: 800px;
+}
+
+.videodetails__vidinfo>h4 {
+    padding-bottom: 10px;
+}
+
+.timeAndfavorite {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 7px;
+}
+
+.timeAndfavorite button {
+    border: none;
+    background-color: #fff;
+}
+
+.timeAndfavorite {
+    display: flex;
+    justify-content: flex-end;
+}

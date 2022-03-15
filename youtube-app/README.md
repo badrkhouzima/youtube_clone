@@ -1,70 +1,89 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# youtube_clone
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+It's a youtube clone that could retrieve. It will have functionalities, favourite, history and ability to conduct a search in the web app.
+Videos would be consumed from googleapis.com/youtube/v3. 
+The page would have its lite version with only a search and the video will be displayed in a large format on the left, covring the whole page.
+## API Reference
 
-Runs the app in the development mode.\
+#### Get all items
+
+```http
+  https://www.googleapis.com/youtube/v3
+```
+
+API for images coming soon and extra info coming soon
+
+  
+## Authors
+
+- [@badrkhouzima](https://www.github.com/padreno)
+
+  
+## 🚀 About Me
+I'm a React developper who is thriving to sharpen his capabilities through cloning web Apps to shed the light on the next step ahead of me.
+
+  
+## Tech Stack
+
+**Client:** React,  Material UI
+
+**Server:** it will be fetching videos from https://www.googleapis.com/youtube/v3
+
+  
+# Hi, I'm Badr Khouzima! 👋
+
+  
+  ## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Example Color | ![#e93f33](https://via.placeholder.com/10/e93f33?text=+) #e93f33 |
+| Example Color | ![#e5e5e5](https://via.placeholder.com/10/e5e5e5?text=+) #e5e5e5 |
+| Example Color | ![#030303](https://via.placeholder.com/10/030303?text=+) #030303 |
+| Example Color | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
+
+one color could be changed to blue insted of red
+
+## TODO
+
+Sprint 2
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/padreno/youtube_clone.git
+```
+
+Go to the project directory
+
+```bash
+  cd youtube-clone
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start 
+  the page will load on 
+  http://localhost:3000
+```
+```bash
+you can always run  the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  
